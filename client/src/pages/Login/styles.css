@@ -1,0 +1,32 @@
+h1{
+  color:  #1e81b0;
+
+  margin-top: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-container{
+  width: 25%;
+  margin: 5% auto;
+  background-color: #76b5c5;
+  border-radius: 8px;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-form{
+  width: 100%;
+  margin: 0;
+  margin: 8%;
+}
+
+.login-padlock{
+  width: 40%;
+  margin: 5%;
+  margin: auto;
+  display: block;;
+}
