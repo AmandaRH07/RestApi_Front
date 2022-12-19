@@ -17,7 +17,7 @@
 }
 
 .book-container header span strong{
-  color: #154c79;
+  color: var(--blue3);
 }
 
 .book-container header a{
@@ -29,12 +29,65 @@
   height: 60px;
   width: 60px;
   border-radius: 4px;
-  border: 1px solid #1e81b0;
+  border: 1px solid var(--blue3);
   background: transparent;
   margin-left: 16px;
   transition: border-color 0.5s;
 }
 
 .book-container header button:hover{
-  border-color: #154c79;
+  border-color: var(--blue3);
+}
+
+.book-container h1{
+  margin-top: 80px;
+  margin-bottom: 24px;
+}
+
+.book-container ul{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap:24px;
+  list-style: none;
+}
+
+.book-container ul li{
+  background: var(--blue1);
+  padding: 8%;
+  border-radius: 8px;
+  position: relative;
+}
+
+.book-container ul li button{
+  position: absolute;
+  right: 24px;
+  top: 40%;
+  border: 0;
+  background: transparent;
+} 
+
+.book-container ul li button + button{
+  bottom: 20%;
+}
+
+
+.book-container ul li button:hover{
+  opacity: 0.8;
+}
+
+.book-container ul li strong{
+  display: block;
+  margin-bottom: 16px;
+  color: var(--gray2);
+}
+
+.book-container ul li p + strong{
+  margin-top: 24px;
+  margin-bottom: 6px;
+}
+
+.book-container ul li p{
+  font-size: 16px;
+  line-height: 21px;
+  color: var(--gray1);
 }

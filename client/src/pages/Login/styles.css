@@ -1,5 +1,5 @@
 h1{
-  color:  #1e81b0;
+  color: var(--blue2);
   margin-top: 25px;
   display: flex;
   align-items: center;
@@ -9,7 +9,7 @@ h1{
 .login-container{
   width: 25%;
   margin: 5% auto;
-  background-color: #76b5c5;
+  background-color: var(--blue1);
   border-radius: 8px;
   
   display: flex;
