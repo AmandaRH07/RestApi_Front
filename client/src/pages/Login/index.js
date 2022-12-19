@@ -11,7 +11,7 @@ export default function Login(){
         <h1>Login</h1>
         <input placeholder="Usuário" type="text"/>
         <input placeholder="Senha" type="password"/>
-        <button className="button" type="submit">Salvar</button> 
+        <button className="button" type="submit" style={{marginTop: '6%' }}>Salvar</button> 
       </form>
     </div>
    </div>

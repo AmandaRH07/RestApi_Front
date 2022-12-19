@@ -1,6 +1,5 @@
 h1{
   color:  #1e81b0;
-
   margin-top: 25px;
   display: flex;
   align-items: center;
@@ -20,11 +19,17 @@ h1{
 
 .login-form{
   width: 100%;
-  margin: 0;
   margin: 8%;
 }
 
 .login-padlock{
+  width: 40%;
+  margin: 5%;
+  margin: auto;
+  display: block;
+}
+
+button .button-test{
   width: 40%;
   margin: 5%;
   margin: auto;
