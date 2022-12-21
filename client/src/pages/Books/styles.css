@@ -77,7 +77,6 @@
 
 .book-container ul li strong{
   display: block;
-  margin-bottom: 16px;
   color: var(--gray2);
 }
 
