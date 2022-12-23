@@ -52,7 +52,8 @@
 }
 
 .book-container ul li{
-  background: var(--blue1);
+  background: var(--offWhite);
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
   padding: 8%;
   border-radius: 8px;
   position: relative;
@@ -61,15 +62,14 @@
 .book-container ul li button{
   position: absolute;
   right: 24px;
-  top: 40%;
+  top: 10%;
   border: 0;
   background: transparent;
 } 
 
 .book-container ul li button + button{
-  bottom: 20%;
+  top: 20%;
 }
-
 
 .book-container ul li button:hover{
   opacity: 0.8;

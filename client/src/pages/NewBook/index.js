@@ -8,7 +8,7 @@ import './styles.css';
 export default function NewBook() {
   const [author, setAuthor] = useState('');
   const [title, setTitle] = useState('');
-  const [lauchDate, setLauchDate] = useState('');
+  const [launchDate, setLaunchDate] = useState('');
   const [price, setPrice] = useState('');
 
   const navigate = useNavigate();
@@ -19,7 +19,7 @@ export default function NewBook() {
     const data = {
       author,
       title,
-      lauchDate,
+      launchDate,
       price,
     };
 
@@ -35,7 +35,7 @@ export default function NewBook() {
       navigate('/books');
     }
     catch (error) {
-      alert("Falied creating new book, please try again!" + error);
+      alert("Falied creating new book, please try again!");
     }
   }
 
@@ -63,15 +63,14 @@ export default function NewBook() {
           />
           <input
             type='Date'
-            value={lauchDate}
-            onChange={e => setLauchDate(e.target.value)}
+            value={launchDate}
+            onChange={e => setLaunchDate(e.target.value)}
           />
           <input
             placeholder='Price'
             value={price}
             onChange={e => setPrice(e.target.value)}
           />
-
           <button className='button' type="submit">Add</button>
         </form>
       </div>

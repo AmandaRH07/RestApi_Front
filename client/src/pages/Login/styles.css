@@ -7,9 +7,10 @@ h1{
 }
 
 .login-container{
-  width: 25%;
+  width: 45%;
   margin: 5% auto;
-  background-color: var(--blue1);
+  background: var(--offWhite);
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   
   display: flex;
