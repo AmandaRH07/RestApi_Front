@@ -6,31 +6,33 @@ import './styles.css';
 
 export default function Books() {
   const [books, setBooks] = useState([]);
-  const userName =localStorage.getItem('userName');
+  const [page, setPage] = useState(1);
+  const userName = localStorage.getItem('userName');
 
   const navigate = useNavigate();
 
   const accessToken = localStorage.getItem('accessToken');
 
+  const authorization = {
+    headers: {
+      Authorization: `Bearer ${accessToken}`
+    }
+  }
+
   useEffect(() => {
-    api.get('api/Book/v1/findBooksPaged?page=1&sortDirection=asc&size=20', {
-      headers: {
-        Authorization: `Bearer ${accessToken}`
-      }
-    })
-      .then(response => {
-        setBooks(response.data.list)
-      });
+    fetchMoreBooks();
 
   }, [accessToken]);
 
+  async function fetchMoreBooks() {
+    const response = await api.get(`api/Book/v1/findBooksPaged?page=${page}&sortDirection=asc&size=6`, authorization)
+    setBooks([...books, ...response.data.list]);
+    setPage(page + 1);
+  }
+
   async function deleteBook(id) {
     try {
-      await api.delete(`api/Book/v1/${id}`, {
-        headers: {
-          Authorization: `Bearer ${accessToken}`
-        }
-      });
+      await api.delete(`api/Book/v1/${id}`, authorization);
 
       setBooks(books.filter(book => book.id !== id));
     }
@@ -76,8 +78,8 @@ export default function Books() {
         <button type="button">
           <FiPower
             size={18}
-            color="#154c79" 
-            onClick={logout}/>
+            color="#154c79"
+            onClick={logout} />
         </button>
       </header>
       <h1>Registered Books</h1>
@@ -92,12 +94,12 @@ export default function Books() {
             <p>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(book.price)}</p>
             <strong>Release Date:</strong>
             <p>{Intl.DateTimeFormat('pt-BR').format(new Date(book.launchDate))}</p>
-            <button 
+            <button
               type="button"
               onClick={() => editBook(book.id)}>
               <FiEdit size={20} color="1e81b0" />
             </button>
-            <button 
+            <button
               type="button"
               onClick={() => deleteBook(book.id)}>
               <FiTrash2 size={20} color="1e81b0" />
@@ -105,6 +107,14 @@ export default function Books() {
           </li>
         ))}
       </ul>
+
+      <button
+        style={{marginTop:'30px'}}
+        className='button'
+        type='button'
+        onClick={fetchMoreBooks}>
+        Load More
+      </button>
     </div>
   )
 }
