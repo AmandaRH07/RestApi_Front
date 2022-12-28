@@ -39,6 +39,15 @@ export default function Books() {
     }
   }
 
+  async function editBook(id) {
+    try {
+      navigate(`new/${id}`);
+    }
+    catch (error) {
+      alert('Edit failed! Try again');
+    }
+  }
+
   async function logout() {
     try {
       await api.get('/api/Auth/v1/revoke', {
@@ -61,7 +70,7 @@ export default function Books() {
         <span>Welcome, <strong>{userName.toUpperCase()}</strong>!</span>
         <Link
           className='button'
-          to='new'>
+          to='new/0'>
           Add new book
         </Link>
         <button type="button">
@@ -83,13 +92,14 @@ export default function Books() {
             <p>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(book.price)}</p>
             <strong>Release Date:</strong>
             <p>{Intl.DateTimeFormat('pt-BR').format(new Date(book.launchDate))}</p>
-            <button type="button">
+            <button 
+              type="button"
+              onClick={() => editBook(book.id)}>
               <FiEdit size={20} color="1e81b0" />
             </button>
             <button 
               type="button"
-              onClick={() => deleteBook(book.id)}
-              >
+              onClick={() => deleteBook(book.id)}>
               <FiTrash2 size={20} color="1e81b0" />
             </button>
           </li>
